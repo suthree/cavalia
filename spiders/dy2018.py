@@ -11,8 +11,6 @@ def parse_index_page():
     res = etree.HTML(response.text)
     ele_list = res.xpath('//div[@class="co_content222"]/ul/li')
     for ele in ele_list:
-        import pdb
-        pdb.set_trace()
         film_url = ele.xpath('./a/@href')[0]
         film_title = ele.xpath('./a/text()')[0]
 
