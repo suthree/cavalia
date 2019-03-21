@@ -1,7 +1,21 @@
 from selenium import webdriver
+from fake_useragent import UserAgent, UserAgentError
 
 
-def create_webdriver():
+def headers():
+    try:
+        ua = UserAgent()
+    except UserAgentError:
+        ua = None
+    return ua
+
+
+def get_proxy():
+    proxies = {}
+    return proxies
+
+
+def create_chromewebdriver():
     """webdriver """
     chrome_options = webdriver.ChromeOptions()
     chrome_options.accept_untrusted_certs = True
@@ -22,11 +36,15 @@ def create_webdriver():
     chrome_options.add_argument("--allow-http-screen-capture")
     chrome_options.add_argument('--headless')
     # 下载文件
-    chrome_options.add_experimental_option("prefs", {
-        "download.default_directory": r"/Users/wcc/projects/cavalia/download",
-        "download.prompt_for_download": False,
-        "download.directory_upgrade": True,
-        "safebrowsing.enabled": True
-    })
-    driver = webdriver.Chrome(chrome_options=chrome_options, executable_path='/usr/local/bin/chromedriver')
+    chrome_options.add_experimental_option(
+        "prefs", {
+            "download.default_directory":
+            r"/Users/wcc/projects/cavalia/download",
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "safebrowsing.enabled": True
+        })
+    driver = webdriver.Chrome(
+        chrome_options=chrome_options,
+        executable_path='/usr/local/bin/chromedriver')
     return driver
