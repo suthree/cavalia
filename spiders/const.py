@@ -1,4 +1,3 @@
-headers = {
-    'User-Agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36',
-}
+wuyou_proxy_url = 'http://api.ip.data5u.com/dynamic/get.html?order=404f1863959b476638b44804fdadf2ae&json=1&sep=3'
+xici_proxy_url = 'http://www.xicidaili.com/nn/1'
+douyin_url = f"""https://api.amemv.com/aweme/v1/discover/search/?cursor=0&keyword={user_id}&count=10&type=1&retry_type=no_retry&iid=17900846586&device_id=34692364855&ac=wifi&channel=xiaomi&aid=1128&app_name=aweme&version_code=162&version_name=1.6.2&device_platform=android&ssmix=a&device_type=MI+5&device_brand=Xiaomi&os_api=24&os_version=7.0&uuid=861945034132187&openudid=dc451556fc0eeadb&manifest_version_code=162&resolution=1080*1920&dpi=480&update_version_code=1622"""

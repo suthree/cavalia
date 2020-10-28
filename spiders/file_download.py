@@ -134,19 +134,12 @@ def iter_download(file_url, file_dir):
     res = requests.get(file_url, stream=True)
     file_size = int(res.headers.get('content-length'))
     # file_size = int(requests.head(file_url).headers['Content-Length'])
-    progress = FileProgress(
-        title=file_name,
-        unit='KB',
-        total=file_size,
-        chunk=chunk_size,
-        run_status='正在下载',
-        fin_status='下载完成')
     with open(file_path, 'wb') as f:
         for chunk in res.iter_content(chunk_size=chunk_size):
             if not chunk:
                 break
             f.write(chunk)
-            progress.refresh(count=len(chunk))
+            f.flush()  # 刷新缓冲区
 
 
 if __name__ == "__main__":
